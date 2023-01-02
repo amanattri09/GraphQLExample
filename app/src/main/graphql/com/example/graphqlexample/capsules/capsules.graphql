@@ -1,0 +1,12 @@
+query FindCapsules{
+    capsules {
+        id
+        missions {
+            name
+            flight
+        }
+        landings
+        status
+        type
+    }
+}

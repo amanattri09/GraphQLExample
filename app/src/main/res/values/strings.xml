@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GraphQlExample</string>
+    <string name="title_loading">Loading..</string>
+    <string name="title_default_Error">Something went wrong.Please try again later</string>
+</resources>
