@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -52,5 +53,5 @@ class CapsuleActivity : BaseActivity() {
 
 @Composable
 fun showPosts(mutableStateFlowPosts: MutableState<CapsulesResponse?>) {
-
+ Text(text = "Hello World")
 }
