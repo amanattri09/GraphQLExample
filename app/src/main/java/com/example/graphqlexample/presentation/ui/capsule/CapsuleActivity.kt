@@ -1,16 +1,19 @@
 package com.example.graphqlexample.presentation.ui.capsule
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.example.FindCapsulesQuery
 import com.example.composeexamplev3.presentation.common.customObserve
 import com.example.graphqlexample.presentation.common.base.BaseActivity
@@ -32,7 +35,7 @@ class CapsuleActivity : BaseActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    //showPosts(mutableStateFlowPosts)
+                    showPosts(mutableStateFlowPosts)
                 }
             }
         }
@@ -53,5 +56,18 @@ class CapsuleActivity : BaseActivity() {
 
 @Composable
 fun showPosts(mutableStateFlowPosts: MutableState<FindCapsulesQuery.Data?>) {
- Text(text = "Hello World")
+    Scaffold(topBar = {
+        TopAppBar(title = { Text(text = "Home") })
+    }, content = {
+        LazyColumn(content = {
+            mutableStateFlowPosts.value?.capsules?.forEach {
+                item {
+                    Text(
+                        text = ("Capsule Id : " + it?.id),
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+                }
+            }
+        })
+    })
 }
