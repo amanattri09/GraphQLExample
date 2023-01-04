@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
+import com.example.FindCapsulesQuery
 import com.example.composeexamplev3.presentation.common.customObserve
-import com.example.graphqlexample.data.remote.capsule.entities.CapsulesResponse
 import com.example.graphqlexample.presentation.common.base.BaseActivity
 import com.example.graphqlexample.presentation.common.theme.GraphQlExampleTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CapsuleActivity : BaseActivity() {
 
     private val capsuleViewModel: CapsuleViewModel by viewModels()
-    private val mutableStateFlowPosts = mutableStateOf<CapsulesResponse?>(null)
+    private val mutableStateFlowPosts = mutableStateOf<FindCapsulesQuery.Data?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class CapsuleActivity : BaseActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    showPosts(mutableStateFlowPosts)
+                    //showPosts(mutableStateFlowPosts)
                 }
             }
         }
@@ -52,6 +52,6 @@ class CapsuleActivity : BaseActivity() {
 }
 
 @Composable
-fun showPosts(mutableStateFlowPosts: MutableState<CapsulesResponse?>) {
+fun showPosts(mutableStateFlowPosts: MutableState<FindCapsulesQuery.Data?>) {
  Text(text = "Hello World")
 }

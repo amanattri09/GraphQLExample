@@ -6,7 +6,5 @@ query FindCapsules{
             flight
         }
         landings
-        status
-        type
     }
 }

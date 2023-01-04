@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'com.apollographql.apollo3'
 }
 
 android {
@@ -46,6 +47,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
 }
 
 dependencies {
@@ -64,6 +66,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     //apolo client
     implementation 'com.apollographql.apollo3:apollo-runtime:3.7.3'
+    implementation 'com.apollographql.apollo3:apollo-api:3.7.3'
     //coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
     // retrofit
@@ -90,3 +93,6 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:$nav_version"
 }
 
+apollo {
+    packageName.set("com.example")
+}
