@@ -2,6 +2,7 @@ package com.example.graphqlexample.data.remote.capsule.repo
 
 import com.example.composeexamplev3.domain.post.ICapsuleRepositary
 import com.example.graphqlexample.common.network.GqlApiService
+import com.example.graphqlexample.data.common.isValidate
 import com.example.graphqlexample.data.remote.capsule.toCapsuleModel
 import com.example.graphqlexample.domain.post.models.CapsuleModel
 import kotlinx.coroutines.Dispatchers

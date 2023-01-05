@@ -2,6 +2,6 @@ package com.example.graphqlexample.data.common
 
 import com.example.graphqlexample.common.network.NetworkException
 
-fun Any?.isValidate(): Any {
+fun <T> T?.isValidate(): T {
     return this ?: throw NetworkException()
 }
