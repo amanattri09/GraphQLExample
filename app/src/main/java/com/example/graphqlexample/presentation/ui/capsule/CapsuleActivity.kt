@@ -1,7 +1,6 @@
 package com.example.graphqlexample.presentation.ui.capsule
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,8 +13,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.FindCapsulesQuery
 import com.example.composeexamplev3.presentation.common.customObserve
+import com.example.graphqlexample.domain.post.models.CapsuleModel
 import com.example.graphqlexample.presentation.common.base.BaseActivity
 import com.example.graphqlexample.presentation.common.theme.GraphQlExampleTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CapsuleActivity : BaseActivity() {
 
     private val capsuleViewModel: CapsuleViewModel by viewModels()
-    private val mutableStateFlowPosts = mutableStateOf<FindCapsulesQuery.Data?>(null)
+    private val mutableStateFlowPosts = mutableStateOf<List<CapsuleModel?>?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,12 +54,12 @@ class CapsuleActivity : BaseActivity() {
 }
 
 @Composable
-fun showPosts(mutableStateFlowPosts: MutableState<FindCapsulesQuery.Data?>) {
+fun showPosts(mutableStateFlowPosts: MutableState<List<CapsuleModel?>?>) {
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = "Home") })
     }, content = {
         LazyColumn(content = {
-            mutableStateFlowPosts.value?.capsules?.forEach {
+            mutableStateFlowPosts.value?.forEach {
                 item {
                     Text(
                         text = ("Capsule Id : " + it?.id),
