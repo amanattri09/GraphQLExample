@@ -20,7 +20,7 @@ class NetworkModule {
 
     @Provides
     fun  provideBaseUrl() : String{
-        return "https://api.spacex.land/graphql"
+        return "https://rickandmortyapi.com/graphql"
     }
 
     @Provides

@@ -1,8 +1,8 @@
 package com.example.graphqlexample.common.network
 
 import com.apollographql.apollo3.api.ApolloResponse
-import com.example.FindCapsulesQuery
+import com.example.CharactersQuery
 
 interface IGqlApiService {
-    suspend fun getCapsules() : ApolloResponse<FindCapsulesQuery.Data>
+    suspend fun getChracters() : ApolloResponse<CharactersQuery.Data>
 }

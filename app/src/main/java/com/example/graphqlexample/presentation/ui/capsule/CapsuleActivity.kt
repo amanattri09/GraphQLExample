@@ -14,7 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.composeexamplev3.presentation.common.customObserve
-import com.example.graphqlexample.domain.post.models.CapsuleModel
+import com.example.graphqlexample.domain.capsule.models.CharacterModel
 import com.example.graphqlexample.presentation.common.base.BaseActivity
 import com.example.graphqlexample.presentation.common.theme.GraphQlExampleTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CapsuleActivity : BaseActivity() {
 
     private val capsuleViewModel: CapsuleViewModel by viewModels()
-    private val mutableStateFlowPosts = mutableStateOf<List<CapsuleModel?>?>(null)
+    private val mutableStateFlowPosts = mutableStateOf<List<CharacterModel?>?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class CapsuleActivity : BaseActivity() {
 }
 
 @Composable
-fun showPosts(mutableStateFlowPosts: MutableState<List<CapsuleModel?>?>) {
+fun showPosts(mutableStateFlowPosts: MutableState<List<CharacterModel?>?>) {
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = "Home") })
     }, content = {
@@ -62,7 +62,7 @@ fun showPosts(mutableStateFlowPosts: MutableState<List<CapsuleModel?>?>) {
             mutableStateFlowPosts.value?.forEach {
                 item {
                     Text(
-                        text = ("Capsule Id : " + it?.id),
+                        text = ("Character Name : " + it?.name),
                         modifier = Modifier.fillMaxWidth().padding(16.dp)
                     )
                 }

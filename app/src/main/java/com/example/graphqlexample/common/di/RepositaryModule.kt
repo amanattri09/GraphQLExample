@@ -1,7 +1,7 @@
 package com.example.graphqlexample.common.di
 
-import com.example.composeexamplev3.domain.post.ICapsuleRepositary
-import com.example.graphqlexample.data.remote.capsule.repo.CapsulesRepositary
+import com.example.composeexamplev3.domain.post.ICharacterRepositary
+import com.example.graphqlexample.data.remote.capsule.repo.CharacterRepositary
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,6 +12,6 @@ import dagger.hilt.components.SingletonComponent
 class RepositaryModule {
 
     @Provides
-    fun providePostRepo(postRepositary: CapsulesRepositary): ICapsuleRepositary = postRepositary
+    fun providePostRepo(postRepositary: CharacterRepositary): ICharacterRepositary = postRepositary
 
 }

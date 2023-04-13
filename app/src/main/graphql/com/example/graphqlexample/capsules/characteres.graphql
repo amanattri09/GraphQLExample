@@ -1,0 +1,10 @@
+query Characters {
+    characters(page: 2, filter: {name: "Morty"}) {
+        info {
+            count
+        }
+        results {
+            name
+        }
+    }
+}
